@@ -1,2 +1,3 @@
 # ArduinoDrums
-Arduino driver for solenoids and Processing bridge
+Arduino driver for solenoids
+Processing sketch bridge between virtual MIDI port and Serial Port.
