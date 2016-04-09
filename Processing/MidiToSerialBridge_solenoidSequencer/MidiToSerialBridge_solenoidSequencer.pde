@@ -1,18 +1,17 @@
 /*
-* Lit les messages midi nodeOn & noteOff entrants et
-* les faits suivre sous forme d'un octet de commande du PORTD de l'Arduino
-* via le port série
+* Reads MIDI nodeOn & noteOff incoming messages and
+* forwards them through Serial port as an Arduino PORTD byte value suitable for fast I/O on PORTD.
 */
 import themidibus.*;
 import processing.serial.*;
 
-//Port COM sur lequel écoute l'Arduino
+//Arduino COM Port
 String serialPortName = "COM11";
 
-//Nom du port MIDI virtuel tel qu'affiché dans RTPMidi
+//Name of the virtual MIDI port as displayed by RTPMidi (based on the actual computer name)
 String midiPortName = "OAB-R90B40D8";
 
-//si true alors ce sketch envoie une série de notes de façon cyclique et n'utilise pas le MIDI
+//if true then this sketch sends a series of cyclic on/off pulses to all outputs without using MIDI
 boolean DEBUG=false;
 
 Serial serialPort; 

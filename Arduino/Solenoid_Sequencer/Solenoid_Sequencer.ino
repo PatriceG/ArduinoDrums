@@ -1,6 +1,6 @@
 /*
-* Pilote jusqu'à 6 solénoides branchés
-* sur les sorties D2 à D7
+* Drives up to 6 solenoids plugged (via MOSFETs)
+* on outputs D2 to D7
 */
 int output=0;
 
@@ -11,9 +11,9 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
-     //lecture état du port souhaité
+     //read data from Serial
      output = (Serial.read() << 2);
-     //pilotage rapide du PORTD
+     //quick I/O driving on PORTD
      PORTD = (PORTD & output) | (PORTD & B11);
      PORTD |= output | (PORTD & B11);
   }
